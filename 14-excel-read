@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+import pyexcel
+
+myexcelval = {}
+
+## Dump excel spreadsheet to a record format friendly to python
+excelrecords = pyexcel.iget_records(file_name="portsservice.xls")
+
+for x in excelrecords:
+    totalsocket = x['ip'] + ":" + str(x['port'])
+    myexcelval.update ( { x['service'] : totalsocket } )
+
+print(myexcelval)
